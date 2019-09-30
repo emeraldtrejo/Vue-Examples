@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  //websmart was used as the IDE
+    <meta name="generator" content="WebSmart" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <title>Vue Demo</title>
+    
+    <link rel="stylesheet" type="text/css" href="/websmart/v11.6/Arctic/css/jquery-ui.css"/>	
+    <link rel="stylesheet" type="text/css" href="/websmart/v11.6/Arctic/css/screen.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/websmart/v11.6/Arctic/css/print.css" media="print" />
+    
+    <script type="text/javascript" src="/websmart/v11.6/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/websmart/v11.6/js/jquery-ui.min.js"></script>
+    <script src="main.js"></script>
+    <!-- development version, includes helpful console warnings -->
+    <!--Here is the script necessary for vue-->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+  </head>
+  <body>
+  <style type="text/css"></style>
+  <center>
+  	
+    <div id="outer-content">
+      <div id="page-title-block" class="page-title-block">
+        <img class="page-title-image" src="/websmart/v11.6/Arctic/images/company-logo.png" alt="logo" />
+        <div id="page-divider-top" class="page-divider"></div>
+      </div>
+      <div id="page-content">
+        <div id="content-header">    
+          <h1 class="title">Vue Demo</h1>
+        </div>
+        <div id="contents"> 
+          Enter Content Here
+          Maybe a table with some input fields
+        </div>
+      </div>
+      
+      <div id="app">
+	<h2>Builder File Maintenance</h2>
+
+		<div class="product">
+			<div class="product-image">
+				<img v-bind:src="image">
+			</div>
+			<div class="product-info">
+			<h3> I love my {{product}}</h3>
+			<p v-if="inStock">In Stock</p>
+			<p v-else>Out of Stock</p>
+			</div>
+			
+			<div class="product-info">
+			<h3> I like my {{product}}</h3>
+			<p v-if="inventory > 10">In Stock</p>
+			<p v-else-if="inventory <= 10 && inventory> 0">Almost out of stock</p>
+			<p v-else>Out of Stock</p>
+			</div>
+			
+			<ul>
+			<!--detail is the alias of the elements that we are iterating on for the collection where details is the collection-->
+				<li v-for="detail in details">{{detail}}</li>
+			</ul>
+			
+			<div v-for="variant in variants">
+				<p>{{ variant.variantColor }}</p>
+			</div>
+			
+		</div>
+  	</div>
+    </div>
+    
+<footer class="fixed-bottom navbar-fixed-bottom">
+<div>
+  <div class="text-left footer-buttons-left">
+    <!-- ADD BUTTONS HERE IF YOU WANT THEM PLACED ON THE LEFT SIDE OF THE FOOTER -->
+	<input type="button" value="Exit"  onclick="window.open('','_self','');window.close();">
+  </div>
+  <div class="text-right footer-buttons-right">
+    <!-- ADD BUTTONS HERE IF YOU WANT THEM PLACED ON THE RIGHT OF THE FOOTER -->
+ </div>
+</div>	
+</footer>
+</form>
+</center>
+   
+<script language="JavaScript" type="text/javascript">
+<!--
+	//creating a new vue instance
+	var app = new Vue({
+		el: '#app',
+		data: {
+			product: 'Socks',
+			image: '..Vue/house.jpg',
+			//when true the instock shows
+			inStock: true,
+			//or you can do with investory compare
+			inventory: 8,
+			details: ["80% cotton", "20%polyster", "Gender-neutral"],
+			variants: [
+				{
+					variantId: 2234,
+					variantColor: "green"
+				},
+				{
+					variantId: 2235,
+					variantColor: "blue"
+					
+				}		
+			]
+		}
+			
+	})
+-->
+</script>
+  </body>
+</html>
